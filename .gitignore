@@ -1,0 +1,7 @@
+.idea
+.DS_Store
+*.esm.json
+*.log
+node_modules/
+*.zip
+*.tgz

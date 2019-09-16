@@ -10,7 +10,7 @@ const appJsonFile = fs.readFileSync(jsonPath);
 var appJson = JSON.parse(appJsonFile);
 var nativeScriptTag = appJson["nativescript"];
 var idTag = nativeScriptTag["id"];
-var newId = idTag + "-" + suffix;
+var newId = idTag + "." + suffix;
 
 appJson.nativescript.id = newId;
 fs.writeFileSync(jsonPath, JSON.stringify(appJson, null, "\t"));

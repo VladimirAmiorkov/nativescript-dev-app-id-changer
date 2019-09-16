@@ -12,7 +12,7 @@ var appGradlePath = pt.join(onlyPath, "App_Resources", "Android", "app.gradle");
 const appGradleFile = fs.readFileSync(appGradlePath);
 let lines = appGradleFile.toString().split(/(?:\r\n|\r|\n)/g);
 
-var suffix = "." + myArgs[1];
+var suffix = "." + getRandomInt(1000);
 
 
 var newGradleText;
@@ -42,3 +42,8 @@ var newId = idTag + suffix;
 appJson.nativescript.id = newId;
 fs.writeFileSync(jsonPath, JSON.stringify(appJson, null, "\t"));
 console.log("Updated app ID with: ", newId);
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }

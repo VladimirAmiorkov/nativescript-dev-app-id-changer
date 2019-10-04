@@ -9,6 +9,9 @@ var jsonPath = myArgs[0];
 var onlyPath = pt.dirname(jsonPath);
 
 var appGradlePath = pt.join(onlyPath, "App_Resources", "Android", "app.gradle");
+if (!fs.existsSync(appGradlePath)) {
+    appGradlePath = pt.join(onlyPath, "app/App_Resources", "Android", "app.gradle");
+}
 const appGradleFile = fs.readFileSync(appGradlePath);
 let lines = appGradleFile.toString().split(/(?:\r\n|\r|\n)/g);
 

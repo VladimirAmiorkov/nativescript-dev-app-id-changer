@@ -15,7 +15,7 @@ if (!fs.existsSync(appGradlePath)) {
 const appGradleFile = fs.readFileSync(appGradlePath);
 let lines = appGradleFile.toString().split(/(?:\r\n|\r|\n)/g);
 
-var suffix = "." + getRandomInt(1000);
+var suffix = "." + Math.random().toString(36).substr(2, 3)
 
 
 var newGradleText;

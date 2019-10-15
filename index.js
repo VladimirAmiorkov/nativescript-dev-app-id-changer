@@ -3,10 +3,20 @@ var pt = require('path')
 
 const errorMessage = "Error: Make sure that you are in an NativeScript application's root directory (where the .json file is located).";
 
-var jsonPath = process.cwd() + "/package.json";
+let dirPath = process.env.INIT_CWD;
+if (!dirPath) {
+    dirPath =  process.cwd();
+}
+
+var jsonPath = dirPath + "/package.json";
 if (!fs.existsSync(jsonPath)) {
-    console.log(errorMessage);
-    process.exit(1);
+    jsonPath = __dirname + "/package.json";
+    if (!fs.existsSync(jsonPath)) {
+        {
+            console.log(errorMessage);
+            process.exit(1);
+        }
+    }
 }
 
 var onlyPath = pt.dirname(jsonPath);
@@ -58,4 +68,4 @@ console.log("Updated app ID with: ", newId);
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+}

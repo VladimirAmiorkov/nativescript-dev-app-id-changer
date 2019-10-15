@@ -1,0 +1,8 @@
+{
+    "name": "nativescript-dev-app-id-changer",
+    "version": "0.0.1",
+    "description": "The purpose of this package is to add an random string at the end if your app's ID.",
+    "scripts": {
+        "postinstall": "node index.js"
+    }
+}

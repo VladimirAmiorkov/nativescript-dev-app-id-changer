@@ -1,11 +1,7 @@
-// Expected args:
-// 1 - path to the NativeScript's package.json file
-// 2 - The unique suffix to add to the app's ID 
 var fs = require('fs');
 var pt = require('path')
 
-var myArgs = process.argv.slice(2);
-var jsonPath = myArgs[0];
+var jsonPath = process.cwd() + "/package.json";
 var onlyPath = pt.dirname(jsonPath);
 
 var appGradlePath = pt.join(onlyPath, "App_Resources", "Android", "app.gradle");

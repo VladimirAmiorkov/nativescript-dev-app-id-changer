@@ -1,13 +1,26 @@
 var fs = require('fs');
 var pt = require('path')
 
+const errorMessage = "Error: Make sure that you are in an NativeScript application's root directory (where the .json file is located).";
+
 var jsonPath = process.cwd() + "/package.json";
+if (!fs.existsSync(jsonPath)) {
+    console.log(errorMessage);
+    process.exit(1);
+}
+
 var onlyPath = pt.dirname(jsonPath);
 
 var appGradlePath = pt.join(onlyPath, "App_Resources", "Android", "app.gradle");
 if (!fs.existsSync(appGradlePath)) {
     appGradlePath = pt.join(onlyPath, "app/App_Resources", "Android", "app.gradle");
 }
+
+if (!fs.existsSync(appGradlePath)) {
+    console.log(errorMessage);
+    process.exit(1);
+}
+
 const appGradleFile = fs.readFileSync(appGradlePath);
 let lines = appGradleFile.toString().split(/(?:\r\n|\r|\n)/g);
 

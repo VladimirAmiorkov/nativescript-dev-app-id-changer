@@ -8,4 +8,4 @@ While working with real devices of IOS and applications that are under a corpora
 ## How to use
 You should only need to use this once before starting to work on app you intent to deploy to a real device **FOR DEVELOPMENT** purposes only so simply install it from npm:
 
-`npm i nativescript-dev-app-id-changer --no-save`.
+`npm i nativescript-dev-app-id-changer --no-save`
